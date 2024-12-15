@@ -19,5 +19,21 @@ return {
         },
       },
     },
+    commands = {
+      open_finder = function(state)
+        local node = state.tree:get_node()
+        local path = node.path
+        if vim.fn.has("mac") == 1 then
+          os.execute("open -R " .. vim.fn.shellescape(path))
+        else
+          vim.api.nvim_err_writeln("This functionality is only supported on macOS")
+        end
+      end,
+    },
+    window = {
+      mappings = {
+        o = "open_finder",
+      },
+    },
   },
 }

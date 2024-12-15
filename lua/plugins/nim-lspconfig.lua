@@ -9,6 +9,55 @@ return {
           format = auto_format,
         },
       },
+      jsonls = {
+        on_new_config = function(new_config)
+          new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+          vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+        end,
+        settings = {
+          json = {
+            format = {
+              enable = true,
+            },
+            validate = { enable = true },
+          },
+        },
+      },
+      prismals = {},
+      tailwindcss = {
+        filetypes_exclude = { "markdown" },
+        filetypes_include = {},
+      },
+      dockerls = {},
+      docker_compose_language_service = {},
+      yamlls = {
+        capabilities = {
+          textDocument = {
+            foldingRange = {
+              dynamicRegistration = false,
+              lineFoldingOnly = true,
+            },
+          },
+        },
+        on_new_config = function(new_config)
+          new_config.settings.yaml.schemas =
+            vim.tbl_deep_extend("force", new_config.settings.yaml.schemas or {}, require("schemastore").yaml.schemas())
+        end,
+        settings = {
+          redhat = { telemetry = { enabled = false } },
+          yaml = {
+            keyOrdering = false,
+            format = {
+              enable = true,
+            },
+            validate = true,
+            schemaStore = {
+              enable = false,
+              url = "",
+            },
+          },
+        },
+      },
     },
     setup = {
       eslint = function()
@@ -24,6 +73,28 @@ return {
         })
 
         LazyVim.format.register(formatter)
+      end,
+      tailwindcss = function(_, opts)
+        local tw = LazyVim.lsp.get_raw_config("tailwindcss")
+        opts.filetypes = opts.filetypes or {}
+
+        vim.list_extend(opts.filetypes, tw.default_config.filetypes)
+
+        opts.filetypes = vim.tbl_filter(function(ft)
+          return not vim.tbl_contains(opts.filetypes_exclude or {}, ft)
+        end, opts.filetypes)
+
+        opts.settings = {
+          tailwindCSS = {
+            includeLanguages = {
+              elixir = "html-eex",
+              eelixir = "html-eex",
+              heex = "html-eex",
+            },
+          },
+        }
+
+        vim.list_extend(opts.filetypes, opts.filetypes_include or {})
       end,
     },
   },
