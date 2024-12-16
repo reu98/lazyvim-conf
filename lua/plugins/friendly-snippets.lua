@@ -1,6 +1,6 @@
 return {
   "rafamadriz/friendly-snippets",
-  branch = "master",
+  branch = "main",
   lazy = false,
   config = function() end,
 }
