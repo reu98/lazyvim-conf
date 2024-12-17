@@ -30,6 +30,8 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.yaml" },
     -- { import = "lazyvim.plugins.extras.ui.smear-cursor" },
     -- import/override with your plugins
+    -- { import = "lazyvim.plugins.extras.lang.java" },
+    { import = "lazyvim.plugins.extras.editor.telescope" },
     { import = "plugins" },
   },
   defaults = {
