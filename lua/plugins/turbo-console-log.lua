@@ -1,9 +1,7 @@
 return {
   "andrewferrier/debugprint.nvim",
   opts = {
-    keymaps = {
-      variable_below = "C-l",
-    },
+    keymaps = {},
     display_counter = false,
     print_tag = "",
   },
