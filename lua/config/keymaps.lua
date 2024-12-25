@@ -8,6 +8,41 @@ vim.keymap.set("i", "<C-S-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" }
 vim.keymap.set("i", "<C-S-k>", "<esc><cmd>m .-2<cr>==giv", { desc = "Move Up" })
 vim.keymap.set("v", "<C-S-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
 vim.keymap.set("v", "<C-S-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+
+-- Package Dependences Update
+-- Key mappings using vim.keymap.set
+vim.keymap.set("n", "<leader>ps", function()
+  require("package-info").show()
+end, { desc = "Show package versions" })
+
+vim.keymap.set("n", "<leader>ph", function()
+  require("package-info").hide()
+end, { desc = "Hide package versions" })
+
+vim.keymap.set("n", "<leader>pu", function()
+  require("package-info").update()
+end, { desc = "Update package on cursor" })
+
+vim.keymap.set("n", "<leader>pd", function()
+  require("package-info").delete()
+end, { desc = "Delete package on cursor" })
+
+vim.keymap.set("n", "<leader>pi", function()
+  require("package-info").install()
+end, { desc = "Install a new package" })
+
+vim.keymap.set("n", "<leader>pr", function()
+  require("package-info").reinstall()
+end, { desc = "Reinstall all dependencies" })
+
+vim.keymap.set("n", "<leader>pl", function()
+  require("config.package-preview-link").show_preview_link()
+end, { desc = "Show preview link from package.json" })
+
+vim.keymap.set("n", "<leader>gr", function()
+  require("config.package-preview-link").show_git_remote()
+end, { desc = "Show Git remote URL" })
+
 -- codeium
 -- https://github.com/Exafunction/codeium.vim?tab=readme-ov-file
 return {
