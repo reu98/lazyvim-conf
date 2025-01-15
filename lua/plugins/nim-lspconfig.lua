@@ -3,6 +3,7 @@ return {
   opts = {
     inlay_hints = { enabled = false },
     servers = {
+      bashls = {},
       eslint = {
         settings = {
           workingDirectories = { mode = "auto" },
