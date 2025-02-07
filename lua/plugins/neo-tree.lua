@@ -14,7 +14,6 @@ return {
         },
         never_show = {
           ".git",
-          ".husky",
           ".bundle",
         },
       },
