@@ -35,8 +35,8 @@ return {
                 lnum = tonumber(lnum) - 1,
                 col = 0,
                 severity = vim.diagnostic.severity.WARN,
-                source = "codespell",
-                message = string.format("Typo: '%s' -> '%s'", incorrect, correct),
+                source = "spell",
+                message = string.format("Unknown word: %s -> %s", incorrect, correct),
               })
             end
           end
