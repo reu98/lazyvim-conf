@@ -7,19 +7,19 @@ return {
     opts.filetypes = opts.filetypes or {}
 
     opts.filetypes.javascript = {
-      left = 'console.log("',
+      left = 'console.log("🚀 ~ ',
     }
 
     opts.filetypes.typescript = {
-      left = 'console.log("',
+      left = 'console.log("🚀 ~ ',
     }
 
     opts.filetypes.javascriptreact = {
-      left = 'console.log("',
+      left = 'console.log("🚀 ~ ',
     }
 
     opts.filetypes.typescriptreact = {
-      left = 'console.log("',
+      left = 'console.log("🚀 ~ ',
     }
 
     return opts
