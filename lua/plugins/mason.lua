@@ -10,6 +10,8 @@ return {
       "hadolint",
       "prettier",
       "shellcheck",
+      "markdownlint-cli2",
+      "markdown-toc",
     },
   },
 }

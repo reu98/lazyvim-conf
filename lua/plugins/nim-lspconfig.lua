@@ -50,6 +50,7 @@ return {
           },
         },
       },
+      marksman = {},
       prismals = {},
       tailwindcss = {
         filetypes_exclude = { "markdown" },

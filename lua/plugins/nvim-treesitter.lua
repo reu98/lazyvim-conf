@@ -8,6 +8,7 @@ return {
       "gosum",
       "sql",
       "dockerfile",
+      "json5",
     },
   },
 }
